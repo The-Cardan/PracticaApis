@@ -36,5 +36,22 @@ namespace PracticaApis.Controllers
                 vocales = vocales
             });
         }
+
+        [HttpGet("invertir")]
+        public IActionResult Invertir(string texto)
+        {
+            string textoInvertido = "";
+
+            for (int i = texto.Length - 1; i >= 0; i--)
+            {
+                textoInvertido += texto[i];
+            }
+
+            return Ok(new
+            {
+                textoOriginal = texto,
+                textoInvertido = textoInvertido
+            });
+        }
     }
 }
