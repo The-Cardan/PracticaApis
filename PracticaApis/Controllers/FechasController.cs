@@ -19,5 +19,21 @@ namespace PracticaApis.Controllers
                 diasDiferencia = (int)diferencia.TotalDays
             });
         }
+
+
+
+        [HttpGet("agregar")]
+        public IActionResult Agregar(DateTime fecha, int dias)
+        {
+            DateTime nuevaFecha = fecha.AddDays(dias);
+
+            return Ok(new
+            {
+                fechaOriginal = fecha.ToString("yyyy-MM-dd"),
+                diasAgregados = dias,
+                nuevaFecha = nuevaFecha.ToString("yyyy-MM-dd")
+            });
+        }
     }
+
 }
